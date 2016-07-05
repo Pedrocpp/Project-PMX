@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>PMX Desing - Criação e desenvolvimento de Sites e Lojas Virtuais</title>
+		
+        <link rel="stylesheet" type="text/css" href="css/menu.css">
+        <link rel="stylesheet" type="text/css" href="css/bootsnav.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+        
+		<script src="js/jquery-3.0.0.min.js" type="text/javascript"></script>
+		
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        
+        <script src="js/bootsnav.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+	
+var $mainMenu = $('#main-menu').on('click', 'span.sub-arrow', function(e) {
+		// toggle the sub menu on sub arrow click in collapsible mode
+		var obj = $mainMenu.data('smartmenus');
+		if (obj.isCollapsible()) {
+			var $item = $(this).parent(),
+				$sub = $item.parent().dataSM('sub'),
+				subIsVisible = $sub.dataSM('shown-before') && $sub.is(':visible');
+			$sub.dataSM('arrowClicked', true);
+			obj.itemActivate($item);
+			if (subIsVisible) {
+				obj.menuHide($sub);
+			}
+			e.stopPropagation();
+			e.preventDefault();
+		}
+	}).bind({
+		// don't show the sub menu in collapsible mode unless the sub arrow is clicked
+		'beforeshow.smapi': function(e, menu) {
+			var obj = $mainMenu.data('smartmenus');
+			if (obj.isCollapsible()) {
+				var $menu = $(menu);
+				if (!$menu.dataSM('arrowClicked')) {
+					return false;
+				}
+				$menu.removeDataSM('arrowClicked');
+			}
+		},
+		'show.smapi': function(e, menu) {
+			$(menu).dataSM('parent-a').children('span.sub-arrow').text('-');
+		},
+		'hide.smapi': function(e, menu) {
+			$(menu).dataSM('parent-a').children('span.sub-arrow').text('+');
+		}
+	});
+	
+</script>
+<style>
+  body {
+      position: relative;
+  }
+  #section1 {padding-top:50px;height:620px;color: #fff; background-color: #1E88E5;}
+  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #white;}
+  #section4 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+  #section5 {padding-top:50px;height:500px;color: #fff; background-color: #000000;}
+
+</style>  
+</head>
+<body scroll="yes">
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top ">
+<!-- Mobile menu toggle button (hamburger/x icon) -->
+
+  <div class="container-fluid">
+    <div class="navbar-header">	
+     <a  class="logo-display" href="index.html"><figure><img src="img/pmx_transparente.png" /> <br /><br /></figure></a>
+    </div>
+    <input id="main-menu-state" type="checkbox" />
+<label class="main-menu-btn" for="main-menu-state">
+  <span class="main-menu-btn-icon"> </span>
+</label>
+
+    <ul id="main-menu" class="nav navbar-nav">
+      <li ><a href="#section1">Quem somos</a></li>
+      <li ><a href="#section2">Serviços</a></li>
+      <li><a href="#section3">Portifolio</a></li>
+      <li><a href="#section4">Novidades</a></li>
+      <li><a href="#section5">Contato</a></li>
+    </ul>
+  </div>
+</nav>	
+  
+	</header>
+	<section >
+		<header>
+				
+		</header>
+ 		<article>
+ 			<div id="section1" class="container-fluid">
+ 			 
+ 			 <!-- TEXTO-->
+ 
+  		  	</div>
+   			<div id="section2" class="container-fluid">
+  
+   			 <!-- TEXTO-->	
+   			 
+   			</div>
+  		    <div id="section3" class="container-fluid">
+ 			
+ 			<!-- TEXTO-->
+  			
+  			</div>
+  	  		<div id="section4" class="container-fluid">
+  			
+  			<!-- TEXTO-->
+  			
+  			</div>
+  	  	  	<div id="section5" class="container-fluid">
+  			
+  			<!-- TEXTO-->
+  			
+  			</div>
+
+ 		</article>
+
+	</section>
+	<aside>
+
+	</aside>
+	<footer>
+
+	</footer>
+</body>
+</html>
+
